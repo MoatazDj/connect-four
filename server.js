@@ -9,7 +9,7 @@ app.use(express.static(path.join(__dirname, './client/dist')));
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json());
 
-var PORT =  8080;
+var PORT =  4000;
 
 app.listen(PORT, () => {
     console.log(`Server is ready listening on port ${PORT} `);

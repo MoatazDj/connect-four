@@ -55,26 +55,6 @@ class Board extends React.Component {
     }
   }
   
-  /*check the winner and make AI move IF game is in AI mode*/
-  componentDidUpdate(){
-    let winner = checkWinner(this.state.boardState)
-    if(this.state.winner !== winner){
-      this.setState({winner: winner})
-    } else {
-       if(this.state.gameMode === 'computer' && this.state.playerTurn === 'yellow'){
-        let validMove = -1;
-        while(validMove === -1){
-          let slat = Math.floor((Math.random() * 7))
-          if(this.state.boardState[slat].indexOf(null) !== -1){
-            validMove = slat
-          }else{
-            validMove = -1
-          }
-        }
-        this.makeMove(validMove)
-       }
-    }
-  }
 
   render(){
 
@@ -106,7 +86,6 @@ class Board extends React.Component {
         {(!this.state.gameSelected || this.state.winner !== '') &&
           <div>
             <button onClick={() => this.selectedGame('two players')}>two players</button>
-            <button onClick={() => this.selectedGame('computer')}>vs computer</button>
           </div>
         }
       </div>
